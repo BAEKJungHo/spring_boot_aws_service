@@ -20,3 +20,11 @@
 
 - JDK 1.8
 - Gradle 4.8 ~ 4.10.2
+
+## Gradle Test 코드 동작하게 설정하기
+
+![Gradle Test](images/gradle.JPG)
+
+## Annotation Processing 
+
+![Annotation Processing](images/annotationprocessing.JPG)
