@@ -62,8 +62,13 @@ public class PostsService {
          * Dirty : 상태의 변화가 생김
          * Dirty Checking : 상태 변경 검사
          *
-         * JPA에서는 엔티티를 조회하면 해당 엔티티의 조회 상태 그대로 스냅샷을 만들어놓습니다.
-         * 그리고 트랜잭션이 끝나는 시점에는 이 스냅샷과 비교해서 다른점이 있다면 Update Query를 데이터베이스로 전달합니다.
+         * JPA에서는 엔티티를 조회하면 해당 엔티티의 조회 상태 그대로 스냅샷을 만들어놓는다.
+         * 그리고 트랜잭션이 끝나는 시점에는 이 스냅샷과 비교해서 다른점이 있다면 Update Query를 데이터베이스로 전달한다.
+         *
+         * Dirty Checking으로 생성되는 update 쿼리는 기본적으로 모든 필드를 업데이트한다.
+         * JPA에서는 전체 필드를 업데이트하는 방식을 기본값으로 사용한다.
+         *
+         * 따라서 부분만 업데이트 하고 싶은 경우 Entity class 에 update 메서드를 만들어 사용한다.
          */
         posts.update(requestDto.getTitle(), requestDto.getContent());
         return id;
