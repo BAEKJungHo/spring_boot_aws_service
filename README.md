@@ -113,7 +113,7 @@ Hibernate 를 쓰는것과 Spring Data JPA 를 쓰는 것 사이에는 큰 차�
  */
 public interface PostsRepository extends JpaRepository<Posts, Long> {
 }
-``
+```
 
 - Web Layer
   - 컨트롤러, 필터, 인터셉터, JSP/Freemarker 등 뷰 템플릿 영역
