@@ -65,7 +65,7 @@ Group group = groupRepository.findGroup(user.getGroupId));
 
 따라서, SQL 에 종속적인 개발을 하지 않아도 된다.
 
-### Spring Data JPA
+## Spring Data JPA
 
 Spring Data JPA -> Hibernate -> JPA
 
@@ -80,3 +80,29 @@ Hibernate 를 쓰는것과 Spring Data JPA 를 쓰는 것 사이에는 큰 차�
   - 관계형 DB 를 사용하다가 트래픽이 많아져서 관계형 DB 로 감당이 안되는 경우, 이때 MongoDB 로 교체가 필요한 경우 개발자는 Spring Data JPA 에서 Spring Data MongoDB 로 의존성 교체만 하면 된다.
   
 > JPA 의 가장 큰 단점은, 높은 러닝 커브, 하지만 JPA 를 사용함으로써 얻는 이점은 크다. CRUD 쿼리를 직접 작성할 필요가 없다. 또한 부모-자식 관계 표현, 1:N 관계 표현, 상태와 행위를 한 곳에 관리하는 등 객체지향 프로그래밍을 쉽게할 수 있다. JPA 는 여러 성능 이슈 해결책들이 대비된 상태라, 이를 잘 활용하면 네이티브 쿼리 만큼 퍼포먼스가 난다.
+
+## Spring 웹 계층
+
+![Spring 웹 계층](images/layer.JPG)
+
+스프링 MVC 패턴을 사용할 때, 비지니스 로직을 service 계층에서 처리를 했는데, JPA 를 사용하게 되는경우 비지니스 로직 처리를 `도메인` 에서 해야한다.
+사실 Service 는 `트랜잭션, 도메인간 순서보장` 역할만 담당한다.
+
+- Web Layer
+  - 컨트롤러, 필터, 인터셉터, JSP/Freemarker 등 뷰 템플릿 영역
+  - 이외에도 외부 요청과 응답에 대한 전반적인 영역을 담당
+- Service Layer
+  - @Service 에 사용되는 영역
+  - @Transactional 이 사용되어야 하는 영역이기도함
+- Repository Layer
+  - 데이터베이스와 같이 데이터 저장소에 접근하는 영역
+  - DAO 영역
+- Dtos
+  - DTO(Data Transfer Object) `계층 간에 데이터 교환을 위한 객체` 를 이야기한다.
+  - 예를 들어 뷰 템플릿 엔진에서 사용될 객체나 Repository Layer 에서 결과로 넘겨준 객체 등이 이들을 의미
+- Domain Model
+  - 도메인이라 불리는 개발 대상을 모든 사람이 동일한 관점에서 이해할 수 있고 공유할 수 있도록 단순화시킨 것을 도메인 모델이라 한다.
+  - @Entity 가 사용되는 영역
+  - 무조건, 데이터베이스 테이블과 관계가 있어야만 하는 것은 아니다.
+  - VO 처럼 값 객체들도 이 영역에 해당
+ 
