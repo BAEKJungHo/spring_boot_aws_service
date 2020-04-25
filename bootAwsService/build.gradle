@@ -31,10 +31,22 @@ repositories {
     jcenter()
 }
 
-// 프로젝트 개발에 필요한 의존성 설정
-// 여기서 특정 버전을 명시하지 않아야 위에서 설정한 springBootVersion 을 따라간다.
+/*
+    - dependencies : 프로젝트 개발에 필요한 의존성 설정
+        - 여기서 특정 버전을 명시하지 않아야 위에서 설정한 springBootVersion 을 따라간다.
+    - spring-boot-starter-data-jpa
+        - 스프링 부트용 Spring Data Jpa 추상화 라이브러리이다.
+        - 스프링 부트 버전에 맞춰 자동으로 JPA 관련 라이브러리들의 버전을 관리해준다.
+     - h2
+        - 인메모리 관계형 데이터베이스
+        - 별도의 설치 필요 없이 프로젝트 의존성만으로 관리할 수 있다.
+        - 메모리에서 실행되기 때문에 애플리케이션 재시작시 초기화가 된다.
+        - 테스트 용으로 주로 사용
+ */
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('come.h2database:h2')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
