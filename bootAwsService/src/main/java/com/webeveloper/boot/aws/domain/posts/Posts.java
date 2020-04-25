@@ -1,14 +1,15 @@
 package com.webeveloper.boot.aws.domain.posts;
 
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 /**
  * @author BAEKJH
- * @since 2020-04-24
- * @discription HelloResponseDto
+ * @since 2020-04-25
+ * @discription Posts
  */
 
 /**
@@ -34,6 +35,7 @@ import javax.persistence.*;
  *  .a(a)
  *  .b(b)
  */
+@Getter
 @NoArgsConstructor
 @Entity
 public class Posts {
