@@ -88,6 +88,33 @@ Hibernate 를 쓰는것과 Spring Data JPA 를 쓰는 것 사이에는 큰 차�
 스프링 MVC 패턴을 사용할 때, 비지니스 로직을 service 계층에서 처리를 했는데, JPA 를 사용하게 되는경우 비지니스 로직 처리를 `도메인` 에서 해야한다.
 사실 Service 는 `트랜잭션, 도메인간 순서보장` 역할만 담당한다.
 
+이때 비지니스 처리 로직이 도메인으로 이동하는 이유는, JPA 를 사용하기 전 @Repository 가 붙은 클래스 역할이 @Service 가 붙은 클래스로 이동하기 때문이다. 그럼 기존 Repository 는 JPA 에서 어떻게 변하냐면 아래처럼 `JpaRepository<Entity Class, PK>` 를 상속받아 사용하게끔 변한다.
+
+주의할 점은 Entity Class 와 Entity Repository 는 같은 위치에 존재해야한다.
+
+- domain
+  - 모듈명
+    - Entity class
+    - Entity Repository
+ 
+ 혹은
+ 
+ - 모듈명
+  - domian
+    - Entity class
+    - Entity Repository
+
+```java
+/**
+ * JpaRepository<Entity Class, PK> 를 상속하면 기본적인 CURD 메서드가 자동으로 생성된다.
+ * @Repository 추가할 필요 없음
+ * 주의 !
+ * - Entity 클래스와 Entity Repository 는 함께 위치해야 한다.
+ */
+public interface PostsRepository extends JpaRepository<Posts, Long> {
+}
+``
+
 - Web Layer
   - 컨트롤러, 필터, 인터셉터, JSP/Freemarker 등 뷰 템플릿 영역
   - 이외에도 외부 요청과 응답에 대한 전반적인 영역을 담당
