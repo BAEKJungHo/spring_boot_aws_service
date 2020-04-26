@@ -1,5 +1,8 @@
 package com.webeveloper.boot.aws.web;
 
+import com.webeveloper.boot.aws.domain.posts.Posts;
+import com.webeveloper.boot.aws.domain.posts.PostsRepository;
+import com.webeveloper.boot.aws.web.dto.PostsUpdateRequestDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +48,6 @@ public class HelloControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name", is(name)))
                 .andExpect(jsonPath("$.amount", is(amount)));
-
     }
 
 }
