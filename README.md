@@ -145,3 +145,8 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
 - 왼쪽 메뉴를 보면 @Entity 가 작성된 클래스 명을 따라 스네이크 기법으로 테이블이 생성되었을 것이다.
 
 ![h2-2](images/h2_2.JPG)
+
+### 조회 기능 RestController 의 핸들러 메서드 API 요청
+
+- Chrome JSON Viewer 설치
+- http://localhost:8080/api/v1/posts/1 입력
