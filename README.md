@@ -150,3 +150,43 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
 
 - Chrome JSON Viewer 설치
 - http://localhost:8080/api/v1/posts/1 입력
+
+## 서버 템플릿 엔진 vs 클라이언트 템플릿 엔진
+
+> 템플릿 엔진 : 지정된 템플릿 양식과 데이터가 합쳐져 HTML 문서를 출력하는 소프트웨어를 이야기한다. 템플릿 엔진은 화면 역할에만 충실해야 한다.
+
+- 서버 템플릿 엔진
+  - JSP, Freemarker 등
+  - 서버에서 Java 코드로 문자열을 만든 뒤 이 문자열을 HTML 로 변환하여 브라우저로 전달.
+- 클라이언트 템플릿 엔진
+  - 리액트, 뷰의 View 파일
+  - 브라우저 위에서 작동
+  - 서버에서 이미 코드가 벗어난 경우
+  - 서버에서는 JSON, XML 형식의 데이터만 전달하고 클라이언트에서 조립한다.
+  - 리액트나 뷰 처럼 자바스크립트 프레임워크에서 서버 사이드 랜더링을 지원하기도 한다.
+
+- 자바스크립트에서 JSP 나 Freemarker 처럼 자바 코드 사용할 수 있을 까?
+
+```java
+<script type="text/javascript">
+$(document).ready(function() {
+  if(a == "1") {
+    <% Sysyem.out.println("test" %>
+  }
+});
+```
+
+이 코드는 if 문과 관계없이 무조건 test 를 콘솔에 출력한다. 이유는 자바스크립트가 작동하는 영역과 JSP 가 작동하는 영역이 서로 다르다.
+JSP 는 명확하게 서버 템플릿 엔진은 아니지만, View 의 역할만 하도록 구성할 떄는 템플릿 엔진으로 사용가능하다.
+
+## 머스테치(Mustache)
+
+수많은 언어를 지원하는 가장 심플한 템플릿 엔진이다.
+
+자바 진영의 템플릿 엔진 JSP, Velocity, Freemarker, Thymeleaf
+
+- JSP, Velocity : 스프링 부트에서 권장하지 않는다.
+- Freemarker : 템플릿 엔진으로 너무 과하게 많은 기능 지원. 높은 자유도. 숙련도가 낮으면 Freemarker 안에 비지니스 로직이 추가될 가능성이 있따.
+- Thymeleaf : 스프링 진영에서 적극적으로 밀고있는 템플릿. 문법이 어렵고 태그 속성방식을 이용해서 마치 자바스크립트 프레임워크를 배우는 느낌.
+- Mustache : 문법이 다른 템플릿 엔진보다 심플. 로직 코드를 사용할 수 없어서 View 와 서버의 역할 명확. Mustache.js 와 Mustache.java 2가지가 다 있어, 하나의 문법으로 클라이언트/서버 템플릿 모두 사용가능
+
