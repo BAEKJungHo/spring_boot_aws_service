@@ -133,3 +133,15 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
   - 무조건, 데이터베이스 테이블과 관계가 있어야만 하는 것은 아니다.
   - VO 처럼 값 객체들도 이 영역에 해당
  
+## H2 데이터 베이스 웹 콘솔로 사용하기
+
+- Application.java 실행 
+- http://localhost:8080/h2-console 로 접속
+
+![h2-1](images/h2_1.JPG)
+
+- JDBC URL 에 `jdbc:h2:mem:testdb` 로 작성
+- connect 클릭
+- 왼쪽 메뉴를 보면 @Entity 가 작성된 클래스 명을 따라 스네이크 기법으로 테이블이 생성되었을 것이다.
+
+![h2-2](images/h2_2.JPG)
