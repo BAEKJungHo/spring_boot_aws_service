@@ -2,6 +2,7 @@ package com.webeveloper.boot.aws;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 /**
  * @author BAEKJH
@@ -9,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @discription Application Main class
  */
 @SpringBootApplication
+@EnableJpaAuditing
 public class Application {
     /**
      * 해당 클래스는 프로젝트 최상단에 위치해야한다.
