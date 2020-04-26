@@ -199,3 +199,11 @@ css 는 header 에 js 는 footer 에 두는게 좋다. HTML 코드는 위에서 
 화면이 다 그려진 뒤에 호출하는 것이 좋다.
 
 css 는 화면을 그리는 역할을 하므로 header 에 두는게 좋다.
+
+## 스프링 부트의 파일 경로
+
+스프링 부트는 기본적으로 src/main/resources/static 위치에 자바스크립트, css, 이미지 등 정적 파일 등을 둔다. 따라서 아래와 같이 호출이 가능하다.
+
+- src/main/resources/static/js/ ... (http://도메인/js/...)
+- src/main/resources/static/css/ ... (http://도메인/css/...)
+- src/main/resources/static/image/ ... (http://도메인/image/...)
