@@ -3,6 +3,10 @@
 - 지은이 : 이동욱
 - 출판사 : 프리렉
 
+## ZenHub 사용
+
+> [Chrome ZenHub](https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd?hl=ko)
+
 ## 자바와 스프링을 사용하는 대기업
 
 - 네이버
