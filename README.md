@@ -211,3 +211,59 @@ css 는 화면을 그리는 역할을 하므로 header 에 두는게 좋다.
 - src/main/resources/static/js/ ... (http://도메인/js/...)
 - src/main/resources/static/css/ ... (http://도메인/css/...)
 - src/main/resources/static/image/ ... (http://도메인/image/...)
+
+## OAuth 로그인 구현
+
+OAuth 로 로그인 구현 시 아래의 것들을 모두 구글, 네이버, 페이스북에 맡기면 되므로 서비스 개발에 집중할 수 있다.
+
+- 로그인 시 보안
+- 회원가입 시 이메일 혹은 전화번호 인증
+- 비밀번호 찾기
+- 비밀번호 변경
+- 회원정보 변경
+
+스프링 부트 1.5 에서의 OAuth2 연동 방법이 2.0 에서는 크게 변경되었는데, 인터넷을 뒤져도 설정 방법이 크게 차이가 나지 않은 경우를 볼 수 있다.
+
+이는 `spring-security-oauth2-autoconfigure` 라이브러리 덕분이다. 이 라이브러리를 사용하면 스프링 부트 1.5 에서 사용하던 설정을 2.0 에서도 그대로
+사용할 수 있다.
+
+### 스프링 부트 1.5 와 2.0 의 OAuth 설정 차이
+
+> 스프링 부트 2.0은 spring-security-oauth2-autoconfigure 라이브러리 사용
+
+- 스프링 부트 1.5
+
+```yml
+google:
+  client:
+    clientId: 인증정보
+    clientSecret: 인증정보
+    accessTokenUri: https://accounts.google.com/o/oauth2/token
+    userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
+    clientAuthenticationScheme: form
+    scope: email, profile
+  resource:
+    userInfoUri: https://www.googleapis.com/oauth2/v2/userinfo
+```
+
+- 스프링 부트 2.0
+
+```java
+spring:
+  security:
+    oauth2:
+      client:
+        clientId: 인증정보
+        clientSecret: 인증정보
+```        
+
+스프링 부트 1.5 방식에서는 url 주소를 모두 명시해야 하지만, 2.0 방식에서는 client 인증 정보만 입력하면 된다. 1.5 에서 직접 입력했던 값들은
+2.0 에서 enum 으로 대체되었다.
+
+`CommonOAuth2Provider` 라는 enum 이 새롭게 추가되어서 구글, 깃허브, 페이스북 등 기본 설정값을 모두 제공한다. 이외에 네이버, 카카오 등을 사용하고 싶으면 따로 추가해야 한다.
+
+- 스프링 부트 2 방식 : Spring Security Oauth2 Client 라이브러리
+  - 장점
+    - 스프링 팀에서 기존 1.5 에서 사용되던 spring-security-oauth 는 유지상태로 결정했으며, 더는 신규기능이 추가되지 않는다.
+    - 스프링 부트용 라이브러리(starter) 출시
+    - 기존에 사용되던 방식은 확장 포인트가 적절하게 오픈되어잇찌 ㅇ낳아 직접 상속하거나 오버라이딩 해야 했다.
