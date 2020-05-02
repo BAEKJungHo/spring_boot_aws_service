@@ -27,6 +27,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * userInfoEndpoint : OAuth2 로그인 성공 이후 사용자 정보를 가져올 때의 설정들을 담당한다.
      * userService : 소셜 로그인 성공 시 후속 조치를 진행할 UserService 인터페이스의 구현체를 등록
      * 리로스 서버(즉, 소셜 서비스들)에서 사용자 정보를 가져온 상태에서 추가로 진행하고 자 하는 기능을 명시할 수 있다.
+     *
+     * antMatchers("/api/v1/**").hasRole(Role.USER.name()) 해당 경로에 존재하는 기능들에 대해서 권한을 USER 로 설정하는 것이다.
+     * name() 메서드는 USER 라는 Enum 이름 그대로 문자열 USER 를 반환한다.
      * @param httpSecurity
      * @throws Exception
      */
