@@ -343,3 +343,8 @@ OAuth 클라이언트 ID 만들기 선택
 - ![n1](images/n1.JPG)
 - ![n2](images/n2.JPG)
 
+## test application.properties
+
+test 에 application.properties 가 없으면 main 의 설정을 그대로 가져온다. 단 추가로 생성한 application-oauth.properties 같은 파일들은 
+가져오지 못하기 때문에 테스트 환경을 위한 application.properties 파일을 만들어야 한다.
+
