@@ -340,6 +340,6 @@ OAuth 클라이언트 ID 만들기 선택
 
 > [네이버 오픈 API](https://developers.naver.com/apps/#/wizard/register)
 
-- ![n1](images/n1.JPG)
-- ![n2](images/n2.JPG)
+- ![n1](images/n1.jpg)
+- ![n2](images/n2.jpg)
 
