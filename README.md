@@ -335,3 +335,10 @@ OAuth 클라이언트 ID 만들기 선택
 - `Redis, Memcached` 와 같은 메모리 DB 를 세션 저장소로 사용한다.`
   - B2C 서비스에서 가장 많이 사용하는 방식
   - 실제 서비스로 사용하기 위해서는 Embedded Redis 와 같은 방식이 아닌 외부 메모리 서버가 필요하다.
+
+## 네이버 로그인
+
+> [네이버 오픈 API](https://developers.naver.com/apps/#/wizard/register)
+
+
+
