@@ -375,6 +375,6 @@ test 에 application.properties 가 없으면 main 의 설정을 그대로 가�
   - 한 번 더 추상화했기 떄문에 많은 기능이 자동화되어있다.
   - AWS 의 Beanstalk(빈스톡), Heroku(헤로쿠) 등
   
- - Software as a Service(SaaS, 사스)
+- Software as a Service(SaaS, 사스)
   - 소프트웨어 서비스를 이야기한다.
   - 구글 드라이브, 드랍박스, 와탭 등
