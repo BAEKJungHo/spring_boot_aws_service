@@ -378,3 +378,11 @@ test 에 application.properties 가 없으면 main 의 설정을 그대로 가�
 - Software as a Service(SaaS, 사스)
   - 소프트웨어 서비스를 이야기한다.
   - 구글 드라이브, 드랍박스, 와탭 등
+
+## AWS RDS(Relational Database Service)
+
+AWS 에서는 관리형 데이터 베이스 서비스인 RDS 를 제공한다. RDS 는 AWS 에서 지원하는 클라우드 기반 관계형 데이터베이스이다. 
+
+하드웨어 프로비저닝, 데이터베이스 설정, 패치 및 백업과 같이 잦은 운영 작업을 자동화하여 개발자가 개발에 집중할 수 있게 지원하는 서비스이다.
+
+추가로 `조정 가능한 용량`을 지원한다.
